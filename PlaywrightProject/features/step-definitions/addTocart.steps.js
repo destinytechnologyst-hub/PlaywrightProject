@@ -1,5 +1,4 @@
 import {Given, When, Then} from '@cucumber/cucumber';
-import {LoginPage} from '../Pages/LoginPage.js'
 import { ProductPage } from '../Pages/ProductPage.js';
 import { expect } from '@playwright/test';
 

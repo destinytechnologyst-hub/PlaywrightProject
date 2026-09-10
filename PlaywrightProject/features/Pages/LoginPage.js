@@ -6,6 +6,7 @@ export class LoginPage{
         this.userName=  page.locator("#user-name");
         this.password= page.locator("[name='password']");
         this.loginButton= page.locator("#login-button");
+        this.errorMessageLocator = page.locator("h3");
     }
 
     async loginMethod ( Username, Password )
@@ -24,5 +25,12 @@ export class LoginPage{
     async clickOnLoginButton()
     {
         await this.loginButton.click();
+    }
+
+    async getLoginErrorMessage()
+    {
+        const errorSms= await this.errorMessageLocator.textContent();
+
+        return errorSms;
     }
 }

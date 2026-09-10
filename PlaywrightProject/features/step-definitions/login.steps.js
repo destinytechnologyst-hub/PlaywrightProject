@@ -8,10 +8,10 @@ Given('I open the login page', async function () {
     await this.page.goto('https://www.saucedemo.com/');
 });
 
-When('I enter valid username and password', async function () {
-  console.log(" 2 - I enter valid username and password");
+When('I enter valid {string} and {string}', async function (username , password) {
+  console.log(" 2 - I enter valid "+username+" and "+password);
 
-  await this.loginPage.enterUserNameAndPass('standard_user','secret_sauce');
+  await this.loginPage.enterUserNameAndPass(username,password);
 
 });
 
@@ -27,4 +27,10 @@ Then('I should see the dashboard', async function () {
 
   expect(currentURL).toContain('inventory');
 
+});
+
+Then('Verify error message {string} displayed on login page', async function (errorMessage) {
+    const actualErrormessage = await this.loginPage.getLoginErrorMessage();
+     console.log(actualErrormessage);
+  expect(actualErrormessage).toContain(errorMessage);
 });
