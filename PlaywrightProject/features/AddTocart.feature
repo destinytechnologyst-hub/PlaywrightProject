@@ -1,4 +1,11 @@
-Feature: Login functionality
+Feature: Validate Add to card functionality on product page
+
+  @cart @ui @verifyLogo
+Scenario: Verify logo swagAlb logo on products page
+    Given I open the login page
+    When I enter valid 'standard_user' and 'secret_sauce'
+    And I click the login button
+    Then Verify 'Swag Labs' text present in swaglab logo
 
    @cart @ui
   Scenario: Validate add to cart functionality for single product
@@ -37,5 +44,5 @@ Feature: Login functionality
     Given I open the login page
     When I enter valid 'standard_user' and 'secret_sauce'
     And I click the login button
-   And Click on add to cart button
+    # And Click on add to cart button
     Then Verify price '49.99' of the product 'Sauce Labs Fleece Jacket'

@@ -14,27 +14,25 @@ Before(async function () {
     this.context = await this.browser.newContext();
 
     this.page = await this.context.newPage();
+
+      this.initializePages();
 });
 
-After(async function (scenario) {
+After(async function () {
 
-    // Take screenshot only when page exists
-    if (
-        scenario.result?.status === Status.FAILED &&
-        this.page
-    ) {
-        const screenshot = await this.page.screenshot({
-            type: 'png'
+    if (this.page) {
+        await this.page.screenshot({
+            path: `screenshots/${Date.now()}.png`,
+            fullPage: true
         });
-
-        await this.attach(
-            screenshot,
-            'image/png'
-        );
     }
 
-    // Close browser only when browser exists
+    if (this.context) {
+        await this.context.close();
+    }
+
     if (this.browser) {
         await this.browser.close();
     }
-});
+}
+);
