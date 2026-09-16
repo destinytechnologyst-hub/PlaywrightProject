@@ -1,12 +1,10 @@
 import {Given, When, Then} from '@cucumber/cucumber';
-import { ProductPage } from '../Pages/ProductPage.js';
 import { expect } from '@playwright/test';
 
 
 When('Click on add to cart button', async function () {
   console.log("Click on add to cart button");
 
- // this.productPage = new ProductPage(this.page);
    await this.pages.productPage.clickOnAddToCartButton();
 
 });
@@ -36,5 +34,24 @@ Then('Verify price {string} of the product {string}', async function (productPri
 Then ('Verify {string} text present in swaglab logo', async function(logoText)
 {
      await this.pages.productPage.verifyTextInsideSwagLabLogo(logoText);
+});
+
+When('Click on Hamburger button on product page',async function () {
+  
+  await this.pages.productPage.clickOnhamburgerButton();
+});
+
+When('Click on logout link on product page', async function () {
+  await this.pages.productPage.clickOnLogoutLink();
+});
+
+When('Click on cart icon', async function () {
+  await this.pages.productPage.clickOnCartIcon();
+});
+
+Then('Verify No of products on my cart page is {string}',async function (noOfProducts) {
+  const actualProducts = await this.pages.myCartPage.getNoOfProductsOnMyCartPage();
+
+  expect(String(actualProducts)).toEqual(noOfProducts);
 });
 

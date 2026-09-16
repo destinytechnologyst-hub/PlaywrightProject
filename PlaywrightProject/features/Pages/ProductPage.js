@@ -10,6 +10,9 @@ export class ProductPage{
         this.removeButton = page.locator(".btn_secondary");
         this.productInCart = page.locator(".shopping_cart_badge");
         this.product =page.locator(".inventory_item");
+        this.hamBurgerButton= page.locator("#react-burger-menu-btn");
+        this.logoutLink = page.locator("#logout_sidebar_link");
+        this.cartIcon  = page.locator(".shopping_cart_link");
     }
 
 
@@ -45,5 +48,20 @@ export class ProductPage{
        const actualText = await this.logo.textContent();
 
        expect(actualText).toEqual(logoText);
+    }
+
+    async clickOnhamburgerButton()
+    {
+         await this.hamBurgerButton.click();
+    }
+
+    async clickOnLogoutLink()
+    {
+         await  this.logoutLink.click();
+    }
+
+    async clickOnCartIcon()
+    {
+         await  this.cartIcon.click();
     }
 }

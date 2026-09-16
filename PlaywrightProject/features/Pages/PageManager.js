@@ -1,5 +1,6 @@
 import { LoginPage } from './LoginPage.js';
 import { ProductPage } from './ProductPage.js';
+import { MyCartPage } from './MyCartPage.js';
 
 export class PageManager {
 
@@ -8,6 +9,7 @@ export class PageManager {
 
         this._loginPage = null;
         this._productPage = null;
+        this._mycartPage =null;
     }
 
     get loginPage() {
@@ -26,5 +28,14 @@ export class PageManager {
         }
 
         return this._productPage;
+    }
+
+    get myCartPage(){
+        if (!this._mycartPage){
+            console.log('Creating My Cart Page Object');
+            this._mycartPage = new MyCartPage(this.page)
+        }
+
+        return this._mycartPage;
     }
 }

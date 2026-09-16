@@ -1,6 +1,6 @@
 Feature: Login functionality
 
-  @login @ui
+ @ui @login 
   Scenario: Validate login functionality with valid credentials
     Given I open the login page
     When I enter valid 'standard_user' and 'secret_sauce'
@@ -8,7 +8,7 @@ Feature: Login functionality
     Then I should see the dashboard
 
 
-@login @ui @error
+ @ui @login @error
     Scenario Outline: Validate login functionality with Invalid credentials
     Given I open the login page
     When I enter valid '<username>' and '<password>'

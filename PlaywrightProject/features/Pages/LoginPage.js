@@ -1,3 +1,5 @@
+import { expect } from "playwright/test";
+
 export class LoginPage{
 
     constructor(page )
@@ -32,5 +34,10 @@ export class LoginPage{
         const errorSms= await this.errorMessageLocator.textContent();
 
         return errorSms;
+    }
+
+    async verifyUserLoggedOut()
+    {
+        expect(this.loginButton).toBeVisible();
     }
 }

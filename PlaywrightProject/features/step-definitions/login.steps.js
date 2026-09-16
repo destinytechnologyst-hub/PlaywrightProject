@@ -1,5 +1,4 @@
 import {Given, When, Then} from '@cucumber/cucumber';
-import {LoginPage} from '../Pages/LoginPage.js'
 import { expect } from '@playwright/test';
 
 Given('I open the login page', async function () {
@@ -33,4 +32,8 @@ Then('Verify error message {string} displayed on login page', async function (er
     const actualErrormessage = await this.pages.loginPage.getLoginErrorMessage();
      console.log(actualErrormessage);
   expect(actualErrormessage).toContain(errorMessage);
+});
+
+Then('Verify user logged out', async function () {
+    await this.pages.loginPage.verifyUserLoggedOut();
 });
