@@ -9,6 +9,7 @@ export class MyCartPage{
         this.hamBurgerButton= page.locator("#react-burger-menu-btn");
         this.logoutLink = page.locator("#logout_sidebar_link");
         this.product = page.locator(".cart_item");
+        this.checkoutButton = page.locator("[name='checkout']");
 
     }
 
@@ -29,6 +30,10 @@ export class MyCartPage{
          await  this.logoutLink.click();
     }
 
+ async clickOnCheckoutButton()
+    {
+         await  this.checkoutButton.click();
+    }
     async getNoOfProductsOnMyCartPage()
     {
         const noOfProducts = this.product.count();
