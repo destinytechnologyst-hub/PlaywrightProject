@@ -13,8 +13,36 @@ export class ProductPage{
         this.hamBurgerButton= page.locator("#react-burger-menu-btn");
         this.logoutLink = page.locator("#logout_sidebar_link");
         this.cartIcon  = page.locator(".shopping_cart_link");
+        this.sortDropdown = page.locator(".product_sort_container");
     }
 
+   async clickOnSortDropdown()
+   {
+      await this.sortDropdown.click();
+   }
+
+   async verifySortOptions(dataTable)
+   {
+      // Read expected options from Gherkin table
+    const expectedOptions = dataTable.raw()
+        .slice(1)
+        .map(row => row[0].trim());
+
+    console.log('Expected Options:', expectedOptions);
+
+    // Get actual options
+
+    const actualOptions = await this.sortDropdown.locator('option').allTextContents();
+
+      console.log('Actual Options:', actualOptions);
+
+    // Verify every expected option is present
+    for (const option of expectedOptions) {
+
+        console.log("Expected option from feature file : "+option);
+        expect(actualOptions).toContain(option);
+    }
+   }
 
     async clickOnAddToCartButton()
     {
