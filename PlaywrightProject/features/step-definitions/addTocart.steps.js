@@ -55,3 +55,7 @@ Then('Verify No of products on my cart page is {string}',async function (noOfPro
   expect(String(actualProducts)).toEqual(noOfProducts);
 });
 
+When('Click on remove button on my cart page', async function () {
+       console.log("Click on remove button from my car page.");
+        await this.pages.myCartPage.clickOnRemoveButton();
+});

@@ -10,6 +10,14 @@ export class MyCartPage{
         this.logoutLink = page.locator("#logout_sidebar_link");
         this.product = page.locator(".cart_item");
         this.checkoutButton = page.locator("[name='checkout']");
+        this.removeButton = page.locator(".item_pricebar>button");
+
+    }
+
+
+    async clickOnRemoveButton()
+    {
+        await  this.removeButton.nth(0).click();
 
     }
 
