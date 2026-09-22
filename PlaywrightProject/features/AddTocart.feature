@@ -65,3 +65,16 @@ Scenario: Verify logo swagAlb logo on products page
     And Click on add to cart button
     And Click on cart icon 
     Then Verify No of products on my cart page is '2'
+
+
+      @ui @cart @MyCart @removeProduct
+      Scenario: Verify Remove product fuctionality on my car page
+    Given I open the login page
+    When I enter valid 'standard_user' and 'secret_sauce'
+    And I click the login button
+    And Click on add to cart button
+    And Click on add to cart button
+    And Click on cart icon 
+    Then Verify No of products on my cart page is '2'
+    And Click on remove button on my cart page
+    Then Verify No of products on my cart page is '1'
