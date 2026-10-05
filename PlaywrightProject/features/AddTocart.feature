@@ -3,14 +3,14 @@ Feature: Validate Add to card functionality on product page
    @ui @verifyLogo
 Scenario: Verify logo swagAlb logo on products page
     Given I open the login page
-    When I enter valid 'standard_user' and 'secret_sauce'
+    When I enter valid credentials
     And I click the login button
     Then Verify 'Swag Labs' text present in swaglab logo
 
    @ui @cart 
   Scenario: Validate add to cart functionality for single product
     Given I open the login page
-    When I enter valid 'standard_user' and 'secret_sauce'
+    When I enter valid credentials
     And I click the login button
     And Click on add to cart button
     Then Verify no of products '1' added in the cart
@@ -18,7 +18,7 @@ Scenario: Verify logo swagAlb logo on products page
     @cart @ui
   Scenario: Validate add to cart functionality for multiple products 
     Given I open the login page
-    When I enter valid 'standard_user' and 'secret_sauce'
+    When I enter valid credentials
     And I click the login button
     And Click on add to cart button
     And Click on add to cart button
@@ -30,7 +30,7 @@ Scenario: Verify logo swagAlb logo on products page
      @ui @cart 
   Scenario: Validate remove product from cart functionality
     Given I open the login page
-    When I enter valid 'standard_user' and 'secret_sauce'
+    When I enter valid credentials
     And I click the login button
     And Click on add to cart button
     And Click on add to cart button
@@ -42,7 +42,7 @@ Scenario: Verify logo swagAlb logo on products page
     @ui @cart @ProdcutPrice 
   Scenario: Validate product price on products page
     Given I open the login page
-    When I enter valid 'standard_user' and 'secret_sauce'
+    When I enter valid credentials
     And I click the login button
     Then Verify price '49.99' of the product 'Sauce Labs Fleece Jacket'
 
@@ -50,7 +50,7 @@ Scenario: Verify logo swagAlb logo on products page
     @ui @cart @logout
      Scenario: Verify logout feature on products page
      Given I open the login page
-    When I enter valid 'standard_user' and 'secret_sauce'
+    When I enter valid credentials
     And I click the login button
     And Click on Hamburger button on product page
     And Click on logout link on product page
@@ -59,7 +59,7 @@ Scenario: Verify logo swagAlb logo on products page
     @ui @cart @MyCart
     Scenario: Verify no of products added in car should be available on my cart page
     Given I open the login page
-    When I enter valid 'standard_user' and 'secret_sauce'
+    When I enter valid credentials
     And I click the login button
     And Click on add to cart button
     And Click on add to cart button
@@ -70,7 +70,7 @@ Scenario: Verify logo swagAlb logo on products page
       @ui @cart @MyCart @removeProduct
       Scenario: Verify Remove product fuctionality on my car page
     Given I open the login page
-    When I enter valid 'standard_user' and 'secret_sauce'
+    When I enter valid credentials
     And I click the login button
     And Click on add to cart button
     And Click on add to cart button
@@ -78,3 +78,17 @@ Scenario: Verify logo swagAlb logo on products page
     Then Verify No of products on my cart page is '2'
     And Click on remove button on my cart page
     Then Verify No of products on my cart page is '1'
+
+    @ui @cart @MyCart @verifyAddedProductName
+    Scenario: Verify added product name matches on the product and cart pages
+      Given I open the login page
+      When I enter valid credentials
+      And I click the login button
+      And Click on add to cart button
+      And I save the added product name from the product page
+      And Click on cart icon
+      Then Verify added product name is the same on the product and cart pages
+
+
+
+

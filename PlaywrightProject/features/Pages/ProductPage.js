@@ -92,4 +92,8 @@ export class ProductPage{
     {
          await  this.cartIcon.click();
     }
+
+    async  getFirstProductName(page) {
+  return (await page.locator('.inventory_item_name').first().innerText()).trim();
+    }
 }
