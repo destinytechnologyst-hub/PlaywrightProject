@@ -3,7 +3,7 @@ Feature: Login functionality
  @ui @login 
   Scenario: Validate login functionality with valid credentials
     Given I open the login page
-    When I enter valid 'standard_user' and 'secret_sauce'
+    When I enter valid credentials
     And I click the login button
     Then I should see the dashboard
 

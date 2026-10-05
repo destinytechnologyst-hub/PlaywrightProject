@@ -1,9 +1,9 @@
 Feature: place order
 
- @ui @login @placeOrder
+ @ui @login @placeOrder @smoke
   Scenario: Validate place order functionality
     Given I open the login page
-    When I enter valid 'standard_user' and 'secret_sauce'
+    When I enter valid credentials
     And I click the login button
     And Click on add to cart button
     And Click on cart icon 
@@ -14,5 +14,7 @@ Feature: place order
     And Click on Continue button
     And Click on finish button on overview page
     Then Verify order got placed successfully
+
+    
 
 

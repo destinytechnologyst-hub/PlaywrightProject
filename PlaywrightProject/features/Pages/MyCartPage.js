@@ -48,4 +48,13 @@ export class MyCartPage{
 
         return noOfProducts;
     }
+
+    async verifyProductNameInCart(page, expectedName) {
+        const cartProductName = (
+            await page.locator('.cart_item .inventory_item_name').first().innerText()
+        ).trim();
+
+        expect(cartProductName).toBe(expectedName);
+    }
 }
+

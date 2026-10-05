@@ -4,6 +4,7 @@ import { MyCartPage } from './MyCartPage.js';
 import {CheckoutPage} from './CheckoutPage.js';
 import {OverviewPage} from './OverviewPage.js';
 import {OrderComfirmationPage} from './OrderComfirmationPage.js';
+import { OrangeHRMLoginPage } from './OrangeHRMLoginPage.js';
 
 export class PageManager {
 
@@ -16,6 +17,7 @@ export class PageManager {
         this._checkoutPage =null;
         this._overviewPage = null;
         this._orderConfirmPage = null;
+        this._orangeHRMLoginPage = null;
     }
 
     get loginPage() {
@@ -78,6 +80,14 @@ export class PageManager {
         return this._orderConfirmPage;
     
    }
+
+    get orangeHRMLoginPage() {
+        if (!this._orangeHRMLoginPage) {
+            this._orangeHRMLoginPage = new OrangeHRMLoginPage(this.page);
+        }
+
+        return this._orangeHRMLoginPage;
+    }
 
    
 }

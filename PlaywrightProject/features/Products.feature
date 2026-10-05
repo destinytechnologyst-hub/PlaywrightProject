@@ -3,7 +3,7 @@ Feature: products feature
  @ui @products @sortDD
   Scenario: Validate list of sorting options
     Given I open the login page
-    When I enter valid 'standard_user' and 'secret_sauce'
+    When I enter valid credentials
     And I click the login button
     And Click on sort dropdown list
     Then Verify below options are presnet in sort drop down list:
